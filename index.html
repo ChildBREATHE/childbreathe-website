@@ -54,6 +54,7 @@
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
+      position: relative;
     }
 
     .logo-text {
@@ -77,7 +78,8 @@
     }
 
     nav button,
-    .lang button {
+    .lang button,
+    .menu-toggle {
       padding: 9px 13px;
       border: none;
       border-radius: 20px;
@@ -89,7 +91,8 @@
     }
 
     nav button:hover,
-    .lang button:hover {
+    .lang button:hover,
+    .menu-toggle:hover {
       opacity: 0.92;
     }
 
@@ -101,6 +104,11 @@
     .lang {
       display: flex;
       gap: 6px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-weight: bold;
     }
 
     .container {
@@ -200,39 +208,49 @@
     @media (max-width: 640px) {
       header {
         padding: 12px 14px;
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
       }
 
       .logo-text {
-        text-align: center;
-        width: 100%;
         font-size: 20px;
       }
 
+      .menu-toggle {
+        display: inline-block;
+      }
+
       .header-right {
+        display: none;
+        width: 100%;
         flex-direction: column;
         align-items: stretch;
-        width: 100%;
+        margin-top: 10px;
+      }
+
+      .header-right.open {
+        display: flex;
       }
 
       nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 8px;
         width: 100%;
       }
 
       nav button {
         width: 100%;
-        padding: 10px 10px;
+        text-align: left;
+        padding: 10px 12px;
         font-size: 14px;
+        border-radius: 10px;
       }
 
       .lang {
         justify-content: center;
         width: 100%;
-        margin-top: 2px;
+        margin-top: 4px;
       }
 
       .lang button {
@@ -267,7 +285,9 @@
   <header>
     <div class="logo-text">ChildBREATHE</div>
 
-    <div class="header-right">
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="header-right" id="mobileMenu">
       <nav>
         <button data-page="home"></button>
         <button data-page="about"></button>
@@ -495,6 +515,10 @@
       document.getElementById("contactText").innerHTML = content[lang].contact;
     }
 
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("open");
+    }
+
     const buttons = document.querySelectorAll("nav button");
     buttons.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -502,6 +526,10 @@
         document.getElementById(btn.dataset.page).classList.add("active");
         buttons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
+
+        if (window.innerWidth <= 640) {
+          document.getElementById("mobileMenu").classList.remove("open");
+        }
       });
     });
 
