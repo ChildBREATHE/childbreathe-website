@@ -1,362 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChildBREATHE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChildBREATHE</title>
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f5f7fa;
-  color: #1f2937;
-}
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --primary: #0b3c5d;
+      --primary-light: #1f77b4;
+      --border: #d1d9e0;
+      --footer-bg: #eef2f6;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --radius: 12px;
+      --max-width: 1000px;
+    }
 
-header {
-  background: #0b3c5d;
-  color: white;
-  padding: 14px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-.header-left img {
-  height: 42px;
-  width: auto;
-  background: white;
-  padding: 4px;
-  border-radius: 6px;
-}
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
 
-.logo-text {
-  font-weight: bold;
-  font-size: 20px;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+    img {
+      max-width: 100%;
+      height: auto;
+    }
 
-nav button, .lang button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  background: white;
-  color: #0b3c5d;
-}
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-nav button.active {
-  background: #1f77b4;
-  color: white;
-}
+    .logo-text {
+      font-weight: bold;
+      font-size: 22px;
+      letter-spacing: 0.2px;
+    }
 
-.lang {
-  display: flex;
-  gap: 6px;
-}
+    .header-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-end;
+    }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
-}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-.page {
-  display: none;
-}
+    nav button,
+    .lang button {
+      padding: 9px 13px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: white;
+      color: var(--primary);
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
 
-.page.active {
-  display: block;
-}
+    nav button:hover,
+    .lang button:hover {
+      opacity: 0.92;
+    }
 
-.card {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
+    nav button.active {
+      background: var(--primary-light);
+      color: white;
+    }
 
-h2 {
-  margin-top: 0;
-}
+    .lang {
+      display: flex;
+      gap: 6px;
+    }
 
-a {
-  color: #1f77b4;
-}
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
 
-@media (max-width: 900px) {
-  header {
-    align-items: flex-start;
-  }
-}
-</style>
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .card {
+      background: var(--surface);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 12px;
+      margin-bottom: 0;
+    }
+
+    footer {
+      background: var(--footer-bg);
+      color: var(--text);
+      padding: 40px 20px;
+      margin-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-logos {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logos img {
+      height: 52px;
+      width: auto;
+      background: white;
+      padding: 6px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .footer-text p {
+      margin: 6px 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: #374151;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        align-items: flex-start;
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      nav {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 12px 14px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .logo-text {
+        text-align: center;
+        width: 100%;
+        font-size: 20px;
+      }
+
+      .header-right {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      nav {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+
+      nav button {
+        width: 100%;
+        padding: 10px 10px;
+        font-size: 14px;
+      }
+
+      .lang {
+        justify-content: center;
+        width: 100%;
+        margin-top: 2px;
+      }
+
+      .lang button {
+        min-width: 74px;
+      }
+
+      .container {
+        padding: 14px;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 10px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p, li {
+        font-size: 15px;
+      }
+
+      .footer-logos img {
+        height: 46px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
- <div class="logo-text">ChildBREATHE</div>
-  
-  <nav>
-    <button data-page="home"></button>
-    <button data-page="about"></button>
-    <button data-page="whoweare"></button>
-    <button data-page="patient"></button>
-    <button data-page="publications"></button>
-    <button data-page="registry"></button>
-    <button data-page="contact"></button>
-  </nav>
+  <header>
+    <div class="logo-text">ChildBREATHE</div>
 
-  <div class="lang">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('da')">DA</button>
-  </div>
-</header>
+    <div class="header-right">
+      <nav>
+        <button data-page="home"></button>
+        <button data-page="about"></button>
+        <button data-page="whoweare"></button>
+        <button data-page="patient"></button>
+        <button data-page="publications"></button>
+        <button data-page="registry"></button>
+        <button data-page="contact"></button>
+      </nav>
 
-<div class="container">
+      <div class="lang">
+        <button type="button" onclick="setLang('en')">EN</button>
+        <button type="button" onclick="setLang('da')">DA</button>
+      </div>
+    </div>
+  </header>
 
-  <div id="home" class="page active">
-    <div class="card" id="homeText"></div>
-  </div>
-
-  <div id="about" class="page">
-    <div class="card" id="aboutText"></div>
-  </div>
-
-  <div id="whoweare" class="page">
-    <div class="card" id="whoText"></div>
-  </div>
-
-  <div id="patient" class="page">
-    <div class="card" id="patientText"></div>
-  </div>
-
-  <div id="publications" class="page">
-    <div class="card" id="pubText"></div>
-  </div>
-
-  <div id="registry" class="page">
-    <div class="card" id="registryText"></div>
-  </div>
-
-  <div id="contact" class="page">
-    <div class="card" id="contactText"></div>
-  </div>
-
-</div>
-
-<script>
-const content = {
-  en: {
-    nav: {
-      home: "Home",
-      about: "About",
-      whoweare: "Who we are",
-      patient: "Patient Resources",
-      publications: "Publications",
-      registry: "Registry",
-      contact: "Contact"
-    },
-
-    home: `
-      <h2>ChildBREATHE</h2>
-      <p>National multicentre research project investigating paediatric bronchiectasis in Denmark.</p>
-      <p>This website is primarily intended for collaborators, researchers, and interest organisations, while also including information for patients and families.</p>
-    `,
-
-    about: `
-      <h2>About the project</h2>
-      <p>There are currently no national Danish data on the occurrence and distribution of bronchiectasis in children. The purpose of this active national research project is to investigate causes, disease mechanisms, and clinical trajectories in children and adolescents with bronchiectasis in Denmark and to establish an associated national research database and biobank.</p>
-      <p>The project is conducted as a 15-year active research programme from 2025 to 2040 and combines clinical data, patient-reported information, microbiological and immunological analyses, and information from acute exacerbations.</p>
-      <p>The aim is to describe disease aetiology, immunological and microbial characteristics, and how disease burden, treatment, and quality of life influence the clinical course.</p>
-      <p>After completion of the active research phase, data and biological material will continue as a national registry and biobank platform for future approved research projects.</p>
-    `,
-
-    who: `
-      <h2>Who we are</h2>
-      <p>The project takes place at:</p>
-      <ul>
-        <li>Department of Paediatrics and Adolescent Medicine, Paediatric Centre for Lung and Allergy Diseases (BCLA), Aarhus University Hospital (AUH)</li>
-        <li>Odense University Hospital (OUH)</li>
-        <li>Rigshospitalet</li>
-      </ul>
-    `,
-
-    patient: `
-      <h2>Patient Resources</h2>
-      <p>This section provides general information for patients and families.</p>
-      <p>The project is linked to established clinical settings, and participation and study-related procedures take place within usual clinical care pathways.</p>
-      <p>Further practical information can be provided by the local clinical team.</p>
-    `,
-
-    pub: `
-      <h2>Publications</h2>
-      <p><strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong></p>
-      <p><em>European Respiratory Review</em>. 2026; 35(179): 250071.</p>
-      <p><a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">Read the article</a></p>
-    `,
-
-    registry: `
-      <h2>Registry</h2>
-      <p>Following the active research phase, data and biological material will continue as a national registry and biobank platform.</p>
-      <p>This platform is intended to support future approved research projects and long-term infrastructure for paediatric bronchiectasis research.</p>
-    `,
-
-    contact: `
-      <h2>Contact</h2>
-      <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus University Hospital (AUH)</p>
-      <p>Email: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
-    `
-  },
-
-  da: {
-    nav: {
-      home: "Forside",
-      about: "Om projektet",
-      whoweare: "Hvem er vi",
-      patient: "Patientressourcer",
-      publications: "Publikationer",
-      registry: "Register",
-      contact: "Kontakt"
-    },
-
-    home: `
-      <h2>ChildBREATHE</h2>
-      <p>Nationalt multicenterprojekt om bronkiektasier hos børn i Danmark.</p>
-      <p>Hjemmesiden er primært rettet mod samarbejdspartnere, forskere og interesseorganisationer, men indeholder også information til patienter og pårørende.</p>
-    `,
-
-    about: `
-      <h2>Om projektet</h2>
-      <p>I Danmark findes der endnu ikke nationale data om forekomst og udbredelse af bronkiektasier hos børn. Formålet med dette aktive nationale forskningsprojekt er at undersøge årsager, sygdomsmekanismer og kliniske forløb hos børn og unge med bronkiektasier i Danmark samt at etablere en tilknyttet national forskningsdatabase og biobank.</p>
-      <p>Projektet gennemføres som et 15-årigt aktivt forskningsprogram fra 2025 til 2040 og kombinerer kliniske data, patientrapporterede oplysninger, mikrobiologiske og immunologiske analyser samt information fra akutte exacerbationer.</p>
-      <p>Formålet er at beskrive sygdommens ætiologi, immunologiske og mikrobielle kendetegn samt hvordan sygdomsbyrde, behandling og livskvalitet påvirker det kliniske forløb.</p>
-      <p>Efter afslutning af den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform til fremtidige godkendte forskningsprojekter.</p>
-    `,
-
-    who: `
-      <h2>Hvem er vi</h2>
-      <p>Projektet finder sted på:</p>
-      <ul>
-        <li>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus Universitetshospital (AUH)</li>
-        <li>Odense Universitetshospital (OUH)</li>
-        <li>Rigshospitalet</li>
-      </ul>
-    `,
-
-    patient: `
-      <h2>Patientressourcer</h2>
-      <p>Denne sektion giver generel information til patienter og pårørende.</p>
-      <p>Projektet er knyttet til etablerede kliniske rammer, og deltagelse samt projektrelaterede procedurer foregår som led i de sædvanlige kliniske forløb.</p>
-      <p>Yderligere praktisk information kan gives af det lokale kliniske team.</p>
-    `,
-
-    pub: `
-      <h2>Publikationer</h2>
-      <p><strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong></p>
-      <p><em>European Respiratory Review</em>. 2026; 35(179): 250071.</p>
-      <p><a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">Læs artiklen</a></p>
-    `,
-
-    registry: `
-      <h2>Register</h2>
-      <p>Efter den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform.</p>
-      <p>Platformen skal understøtte fremtidige godkendte forskningsprojekter og en langsigtet infrastruktur for forskning i bronkiektasier hos børn.</p>
-    `,
-
-    contact: `
-      <h2>Kontakt</h2>
-      <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus Universitetshospital (AUH)</p>
-      <p>E-mail: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
-    `
-  }
-};
-
-let lang = "en";
-
-function setLang(l) {
-  lang = l;
-  loadContent();
-  updateNav();
-}
-
-function updateNav() {
-  const n = content[lang].nav;
-  document.querySelector("[data-page='home']").textContent = n.home;
-  document.querySelector("[data-page='about']").textContent = n.about;
-  document.querySelector("[data-page='whoweare']").textContent = n.whoweare;
-  document.querySelector("[data-page='patient']").textContent = n.patient;
-  document.querySelector("[data-page='publications']").textContent = n.publications;
-  document.querySelector("[data-page='registry']").textContent = n.registry;
-  document.querySelector("[data-page='contact']").textContent = n.contact;
-}
-
-function loadContent() {
-  document.getElementById("homeText").innerHTML = content[lang].home;
-  document.getElementById("aboutText").innerHTML = content[lang].about;
-  document.getElementById("whoText").innerHTML = content[lang].who;
-  document.getElementById("patientText").innerHTML = content[lang].patient;
-  document.getElementById("pubText").innerHTML = content[lang].pub;
-  document.getElementById("registryText").innerHTML = content[lang].registry;
-  document.getElementById("contactText").innerHTML = content[lang].contact;
-}
-
-updateNav();
-loadContent();
-
-const buttons = document.querySelectorAll("nav button");
-buttons.forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    document.getElementById(btn.dataset.page).classList.add("active");
-    buttons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  };
-});
-</script>
-<footer style="background:#eef2f6; color:#1f2937; padding:40px 20px; margin-top:50px; border-top:1px solid #d1d9e0;">
-  <div style="max-width:1000px; margin:auto; text-align:center;">
-
-    <!-- Logoer -->
-    <div style="display:flex; justify-content:center; gap:25px; margin-bottom:20px; flex-wrap:wrap;">
-      <img src="logo-int.png" style="height:50px; background:white; padding:6px; border-radius:8px;">
-      <img src="logo-dk.png" style="height:50px; background:white; padding:6px; border-radius:8px;">
+  <main class="container">
+    <div id="home" class="page active">
+      <div class="card" id="homeText"></div>
     </div>
 
-    <!-- Tekst -->
-    <div style="font-size:14px; line-height:1.6; color:#374151;">
-      <p style="margin:6px 0;">© 2026 ChildBREATHE</p>
-      <p style="margin:6px 0;">All rights reserved</p>
-
-      <p style="margin:12px 0;">
-        Affiliated with<br>
-        Department of Paediatrics and Adolescent Medicine<br>
-        Aarhus University Hospital
-      </p>
-
-      <p style="margin:12px 0;">
-        Palle Juul-Jensens Blvd. 127, Entrance H8<br>
-        8200 Aarhus<br>
-        Denmark
-      </p>
+    <div id="about" class="page">
+      <div class="card" id="aboutText"></div>
     </div>
 
-  </div>
-</footer>
+    <div id="whoweare" class="page">
+      <div class="card" id="whoText"></div>
+    </div>
+
+    <div id="patient" class="page">
+      <div class="card" id="patientText"></div>
+    </div>
+
+    <div id="publications" class="page">
+      <div class="card" id="pubText"></div>
+    </div>
+
+    <div id="registry" class="page">
+      <div class="card" id="registryText"></div>
+    </div>
+
+    <div id="contact" class="page">
+      <div class="card" id="contactText"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logos">
+        <img src="logo-int.png" alt="ChildBREATHE international logo">
+        <img src="logo-dk.png" alt="ChildBREATHE Denmark logo">
+      </div>
+
+      <div class="footer-text">
+        <p>© 2026 ChildBREATHE</p>
+        <p>All rights reserved</p>
+        <p>
+          Affiliated with<br>
+          Department of Paediatrics and Adolescent Medicine<br>
+          Aarhus University Hospital
+        </p>
+        <p>
+          Palle Juul-Jensens Blvd. 127, Entrance H8<br>
+          8200 Aarhus<br>
+          Denmark
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const content = {
+      en: {
+        nav: {
+          home: "Home",
+          about: "About",
+          whoweare: "Who we are",
+          patient: "Patient Resources",
+          publications: "Publications",
+          registry: "Registry",
+          contact: "Contact"
+        },
+
+        home: `
+          <h2>ChildBREATHE</h2>
+          <p>National multicentre research project investigating paediatric bronchiectasis in Denmark.</p>
+          <p>This website is primarily intended for collaborators, researchers, and interest organisations, while also including information for patients and families.</p>
+        `,
+
+        about: `
+          <h2>About the project</h2>
+          <p>There are currently no national Danish data on the occurrence and distribution of bronchiectasis in children. The purpose of this active national research project is to investigate causes, disease mechanisms, and clinical trajectories in children and adolescents with bronchiectasis in Denmark and to establish an associated national research database and biobank.</p>
+          <p>The project is conducted as a 15-year active research programme from 2025 to 2040 and combines clinical data, patient-reported information, microbiological and immunological analyses, and information from acute exacerbations.</p>
+          <p>The aim is to describe disease aetiology, immunological and microbial characteristics, and how disease burden, treatment, and quality of life influence the clinical course.</p>
+          <p>After completion of the active research phase, data and biological material will continue as a national registry and biobank platform for future approved research projects.</p>
+        `,
+
+        whoweare: `
+          <h2>Who we are</h2>
+          <p>The project takes place at:</p>
+          <ul>
+            <li>Department of Paediatrics and Adolescent Medicine, Paediatric Centre for Lung and Allergy Diseases (BCLA), Aarhus University Hospital (AUH)</li>
+            <li>Odense University Hospital (OUH)</li>
+            <li>Rigshospitalet</li>
+          </ul>
+        `,
+
+        patient: `
+          <h2>Patient Resources</h2>
+          <p>This section provides general information for patients and families.</p>
+          <p>The project is linked to established clinical settings, and participation and study-related procedures take place within usual clinical care pathways.</p>
+          <p>Further practical information can be provided by the local clinical team.</p>
+        `,
+
+        publications: `
+          <h2>Publications</h2>
+          <p><strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong></p>
+          <p><em>European Respiratory Review</em>. 2026; 35(179): 250071.</p>
+          <p><a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">Read the article</a></p>
+        `,
+
+        registry: `
+          <h2>Registry</h2>
+          <p>Following the active research phase, data and biological material will continue as a national registry and biobank platform.</p>
+          <p>This platform is intended to support future approved research projects and long-term infrastructure for paediatric bronchiectasis research.</p>
+        `,
+
+        contact: `
+          <h2>Contact</h2>
+          <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus University Hospital (AUH)</p>
+          <p>Email: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
+        `
+      },
+
+      da: {
+        nav: {
+          home: "Forside",
+          about: "Om projektet",
+          whoweare: "Hvem er vi",
+          patient: "Patientressourcer",
+          publications: "Publikationer",
+          registry: "Register",
+          contact: "Kontakt"
+        },
+
+        home: `
+          <h2>ChildBREATHE</h2>
+          <p>Nationalt multicenterprojekt om bronkiektasier hos børn i Danmark.</p>
+          <p>Hjemmesiden er primært rettet mod samarbejdspartnere, forskere og interesseorganisationer, men indeholder også information til patienter og pårørende.</p>
+        `,
+
+        about: `
+          <h2>Om projektet</h2>
+          <p>I Danmark findes der endnu ikke nationale data om forekomst og udbredelse af bronkiektasier hos børn. Formålet med dette aktive nationale forskningsprojekt er at undersøge årsager, sygdomsmekanismer og kliniske forløb hos børn og unge med bronkiektasier i Danmark samt at etablere en tilknyttet national forskningsdatabase og biobank.</p>
+          <p>Projektet gennemføres som et 15-årigt aktivt forskningsprogram fra 2025 til 2040 og kombinerer kliniske data, patientrapporterede oplysninger, mikrobiologiske og immunologiske analyser samt information fra akutte exacerbationer.</p>
+          <p>Formålet er at beskrive sygdommens ætiologi, immunologiske og mikrobielle kendetegn samt hvordan sygdomsbyrde, behandling og livskvalitet påvirker det kliniske forløb.</p>
+          <p>Efter afslutning af den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform til fremtidige godkendte forskningsprojekter.</p>
+        `,
+
+        whoweare: `
+          <h2>Hvem er vi</h2>
+          <p>Projektet finder sted på:</p>
+          <ul>
+            <li>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus Universitetshospital (AUH)</li>
+            <li>Odense Universitetshospital (OUH)</li>
+            <li>Rigshospitalet</li>
+          </ul>
+        `,
+
+        patient: `
+          <h2>Patientressourcer</h2>
+          <p>Denne sektion giver generel information til patienter og pårørende.</p>
+          <p>Projektet er knyttet til etablerede kliniske rammer, og deltagelse samt projektrelaterede procedurer foregår som led i de sædvanlige kliniske forløb.</p>
+          <p>Yderligere praktisk information kan gives af det lokale kliniske team.</p>
+        `,
+
+        publications: `
+          <h2>Publikationer</h2>
+          <p><strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong></p>
+          <p><em>European Respiratory Review</em>. 2026; 35(179): 250071.</p>
+          <p><a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">Læs artiklen</a></p>
+        `,
+
+        registry: `
+          <h2>Register</h2>
+          <p>Efter den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform.</p>
+          <p>Platformen skal understøtte fremtidige godkendte forskningsprojekter og en langsigtet infrastruktur for forskning i bronkiektasier hos børn.</p>
+        `,
+
+        contact: `
+          <h2>Kontakt</h2>
+          <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus Universitetshospital (AUH)</p>
+          <p>E-mail: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
+        `
+      }
+    };
+
+    let lang = "en";
+
+    function setLang(l) {
+      lang = l;
+      updateNav();
+      loadContent();
+    }
+
+    function updateNav() {
+      const n = content[lang].nav;
+      document.querySelector("[data-page='home']").textContent = n.home;
+      document.querySelector("[data-page='about']").textContent = n.about;
+      document.querySelector("[data-page='whoweare']").textContent = n.whoweare;
+      document.querySelector("[data-page='patient']").textContent = n.patient;
+      document.querySelector("[data-page='publications']").textContent = n.publications;
+      document.querySelector("[data-page='registry']").textContent = n.registry;
+      document.querySelector("[data-page='contact']").textContent = n.contact;
+    }
+
+    function loadContent() {
+      document.getElementById("homeText").innerHTML = content[lang].home;
+      document.getElementById("aboutText").innerHTML = content[lang].about;
+      document.getElementById("whoText").innerHTML = content[lang].whoweare;
+      document.getElementById("patientText").innerHTML = content[lang].patient;
+      document.getElementById("pubText").innerHTML = content[lang].publications;
+      document.getElementById("registryText").innerHTML = content[lang].registry;
+      document.getElementById("contactText").innerHTML = content[lang].contact;
+    }
+
+    const buttons = document.querySelectorAll("nav button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+        document.getElementById(btn.dataset.page).classList.add("active");
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+
+    updateNav();
+    loadContent();
+  </script>
 </body>
 </html>
