@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChildBREATHE</title>
-
+  <meta name="description" content="ChildBREATHE is a national multicentre research project investigating paediatric bronchiectasis in Denmark.">
+  
   <style>
     :root {
       --bg: #f5f7fa;
@@ -15,7 +16,7 @@
       --primary-light: #1f77b4;
       --border: #d1d9e0;
       --footer-bg: #eef2f6;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
       --radius: 12px;
       --max-width: 1000px;
     }
@@ -61,6 +62,14 @@
       font-weight: bold;
       font-size: 22px;
       letter-spacing: 0.2px;
+      cursor: pointer;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
     }
 
     .header-right {
@@ -106,6 +115,12 @@
       gap: 6px;
     }
 
+    .lang button.active-lang {
+      background: var(--primary-light);
+      color: white;
+      font-weight: bold;
+    }
+
     .menu-toggle {
       display: none;
       font-weight: bold;
@@ -138,6 +153,7 @@
       margin-bottom: 16px;
       font-size: 30px;
       line-height: 1.2;
+      color: var(--text);
     }
 
     p, li {
@@ -248,13 +264,11 @@
       }
 
       .lang {
-        justify-content: center;
-        width: 100%;
-        margin-top: 4px;
+        gap: 6px;
       }
 
       .lang button {
-        min-width: 74px;
+        min-width: 56px;
       }
 
       .container {
@@ -283,9 +297,16 @@
 <body>
 
   <header>
-    <div class="logo-text">ChildBREATHE</div>
+    <div class="logo-text" onclick="goHome()">ChildBREATHE</div>
 
-    <button class="menu-toggle" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">☰ Menu</button>
+    <div class="header-controls">
+      <div class="lang">
+        <button id="btn-en" type="button" onclick="setLang('en')">EN</button>
+        <button id="btn-da" type="button" onclick="setLang('da')">DA</button>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">☰ <span id="menuLabel">Menu</span></button>
+    </div>
 
     <div class="header-right" id="mobileMenu">
       <nav>
@@ -297,11 +318,6 @@
         <button data-page="registry"></button>
         <button data-page="contact"></button>
       </nav>
-
-      <div class="lang">
-        <button type="button" onclick="setLang('en')">EN</button>
-        <button type="button" onclick="setLang('da')">DA</button>
-      </div>
     </div>
   </header>
 
@@ -492,6 +508,7 @@
       lang = l;
       updateNav();
       loadContent();
+      updateLanguageButtons();
     }
 
     function updateNav() {
@@ -503,6 +520,7 @@
       document.querySelector("[data-page='publications']").textContent = n.publications;
       document.querySelector("[data-page='registry']").textContent = n.registry;
       document.querySelector("[data-page='contact']").textContent = n.contact;
+      document.getElementById("menuLabel").textContent = "Menu";
     }
 
     function loadContent() {
@@ -515,8 +533,26 @@
       document.getElementById("contactText").innerHTML = content[lang].contact;
     }
 
+    function updateLanguageButtons() {
+      document.getElementById("btn-en").classList.remove("active-lang");
+      document.getElementById("btn-da").classList.remove("active-lang");
+      document.getElementById("btn-" + lang).classList.add("active-lang");
+    }
+
     function toggleMenu() {
       document.getElementById("mobileMenu").classList.toggle("open");
+    }
+
+    function goHome() {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById("home").classList.add("active");
+
+      document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+      document.querySelector("[data-page='home']").classList.add("active");
+
+      if (window.innerWidth <= 640) {
+        document.getElementById("mobileMenu").classList.remove("open");
+      }
     }
 
     const buttons = document.querySelectorAll("nav button");
@@ -535,6 +571,8 @@
 
     updateNav();
     loadContent();
+    updateLanguageButtons();
+    document.querySelector("[data-page='home']").classList.add("active");
   </script>
 </body>
 </html>
