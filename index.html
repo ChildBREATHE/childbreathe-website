@@ -1,21 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ChildBREATHE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChildBREATHE</title>
+
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; }
+header { background:#0b3c5d; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
+nav button { margin:5px; padding:8px 12px; border:none; border-radius:20px; cursor:pointer; }
+nav button.active { background:#1f77b4; color:white; }
+.lang button { margin-left:5px; }
+.container { max-width:1000px; margin:auto; padding:20px; }
+.page { display:none; }
+.page.active { display:block; }
+.card { background:white; padding:20px; border-radius:10px; margin-bottom:15px; }
+</style>
 </head>
+
 <body>
-    <h1>ChildBREATHE</h1>
+<header>
+<div><strong>ChildBREATHE</strong></div>
+<nav>
+<button data-page="home">Home</button>
+<button data-page="about">About</button>
+<button data-page="whoweare">Who we are</button>
+<button data-page="patient">Patient Resources</button>
+<button data-page="publications">Publications</button>
+<button data-page="registry">Registry</button>
+<button data-page="contact">Contact</button>
+</nav>
+<div class="lang">
+<button onclick="setLang('en')">EN</button>
+<button onclick="setLang('da')">DA</button>
+</div>
+</header>
 
-    <p>ChildBREATHE is a national multicentre research project investigating airway inflammation and microbiology in children with non-CF bronchiectasis.</p>
+<div class="container">
 
-    <h2>About the study</h2>
-    <p>This observational study is conducted across paediatric centres in Denmark.</p>
+<div id="home" class="page active">
+<div class="card" id="homeText"></div>
+</div>
 
-    <h2>Study procedures</h2>
-    <p>Biological samples are collected during clinically indicated procedures. No additional invasive procedures are performed for research purposes.</p>
+<div id="about" class="page">
+<div class="card" id="aboutText"></div>
+</div>
 
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
+<div id="whoweare" class="page">
+<div class="card" id="whoText"></div>
+</div>
+
+<div id="patient" class="page">
+<div class="card" id="patientText"></div>
+</div>
+
+<div id="publications" class="page">
+<div class="card" id="pubText"></div>
+</div>
+
+<div id="registry" class="page">
+<div class="card" id="registryText"></div>
+</div>
+
+<div id="contact" class="page">
+<div class="card" id="contactText"></div>
+</div>
+
+</div>
+
+<script>
+
+const content = {
+
+en: {
+home: "<h2>ChildBREATHE</h2><p>National multicentre research project investigating paediatric bronchiectasis in Denmark.</p>",
+about: "<h2>About the project</h2><p>There are currently no Danish national data on paediatric bronchiectasis. This project investigates causes, disease mechanisms and clinical course, and establishes a national research database and biobank (2025–2040).</p>",
+who: "<h2>Who we are</h2><p>Aarhus University Hospital (AUH), Odense University Hospital (OUH), and Rigshospitalet.</p>",
+patient: "<h2>Patient information</h2><p>This section provides general information for patients and families. Participation occurs within routine clinical care.</p>",
+pub: "<h2>Publications</h2><p>Add your publications here.</p>",
+registry: "<h2>Registry</h2><p>After 2040, the project continues as a national registry and biobank.</p>",
+contact: "<h2>Contact</h2><p>Børn og Unge, BCLA, AUH<br>auh.bronkiektasi@rm.dk</p>"
+},
+
+da: {
+home: "<h2>ChildBREATHE</h2><p>Nationalt multicenterprojekt om bronkiektasier hos børn i Danmark.</p>",
+about: "<h2>Om projektet</h2><p>Der findes endnu ikke danske nationale data. Projektet undersøger årsager, sygdomsmekanismer og kliniske forløb samt etablerer database og biobank (2025–2040).</p>",
+who: "<h2>Hvem er vi</h2><p>Aarhus Universitetshospital, Odense Universitetshospital og Rigshospitalet.</p>",
+patient: "<h2>Patientinformation</h2><p>Denne side er for patienter og pårørende. Deltagelse sker som del af klinisk behandling.</p>",
+pub: "<h2>Publikationer</h2><p>Tilføj publikationer her.</p>",
+registry: "<h2>Register</h2><p>Efter 2040 fortsætter projektet som register og biobank.</p>",
+contact: "<h2>Kontakt</h2><p>Børn og Unge, BCLA, AUH<br>auh.bronkiektasi@rm.dk</p>"
+}
+};
+
+let lang = 'en';
+
+function setLang(l) {
+lang = l;
+loadContent();
+}
+
+function loadContent() {
+document.getElementById('homeText').innerHTML = content[lang].home;
+document.getElementById('aboutText').innerHTML = content[lang].about;
+document.getElementById('whoText').innerHTML = content[lang].who;
+document.getElementById('patientText').innerHTML = content[lang].patient;
+document.getElementById('pubText').innerHTML = content[lang].pub;
+document.getElementById('registryText').innerHTML = content[lang].registry;
+document.getElementById('contactText').innerHTML = content[lang].contact;
+}
+
+loadContent();
+
+const buttons = document.querySelectorAll('nav button');
+buttons.forEach(btn => {
+btn.onclick = () => {
+document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+document.getElementById(btn.dataset.page).classList.add('active');
+buttons.forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+};
+});
+
+</script>
+
 </body>
 </html>
