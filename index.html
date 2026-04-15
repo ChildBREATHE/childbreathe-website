@@ -6,30 +6,72 @@
 <title>ChildBREATHE</title>
 
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f5f7fa; }
-header { background:#0b3c5d; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
-nav button { margin:5px; padding:8px 12px; border:none; border-radius:20px; cursor:pointer; }
-nav button.active { background:#1f77b4; color:white; }
-.lang button { margin-left:5px; }
-.container { max-width:1000px; margin:auto; padding:20px; }
+body { font-family: Arial; margin:0; background:#f5f7fa; }
+
+header {
+  background:#0b3c5d;
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo {
+  font-weight:bold;
+  font-size:20px;
+}
+
+nav button {
+  margin:5px;
+  padding:8px 12px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+nav button.active {
+  background:#1f77b4;
+  color:white;
+}
+
+.lang button {
+  margin-left:5px;
+}
+
+.container {
+  max-width:1000px;
+  margin:auto;
+  padding:20px;
+}
+
 .page { display:none; }
 .page.active { display:block; }
-.card { background:white; padding:20px; border-radius:10px; margin-bottom:15px; }
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
 </style>
 </head>
 
 <body>
+
 <header>
-<div><strong>ChildBREATHE</strong></div>
+<div class="logo">🫁 ChildBREATHE</div>
+
 <nav>
-<button data-page="home">Home</button>
-<button data-page="about">About</button>
-<button data-page="whoweare">Who we are</button>
-<button data-page="patient">Patient Resources</button>
-<button data-page="publications">Publications</button>
-<button data-page="registry">Registry</button>
-<button data-page="contact">Contact</button>
+<button data-page="home"></button>
+<button data-page="about"></button>
+<button data-page="whoweare"></button>
+<button data-page="patient"></button>
+<button data-page="publications"></button>
+<button data-page="registry"></button>
+<button data-page="contact"></button>
 </nav>
+
 <div class="lang">
 <button onclick="setLang('en')">EN</button>
 <button onclick="setLang('da')">DA</button>
@@ -73,52 +115,117 @@ nav button.active { background:#1f77b4; color:white; }
 const content = {
 
 en: {
+nav: {
+home: "Home",
+about: "About",
+whoweare: "Who we are",
+patient: "Patient Resources",
+publications: "Publications",
+registry: "Registry",
+contact: "Contact"
+},
+
 home: "<h2>ChildBREATHE</h2><p>National multicentre research project investigating paediatric bronchiectasis in Denmark.</p>",
-about: "<h2>About the project</h2><p>There are currently no Danish national data on paediatric bronchiectasis. This project investigates causes, disease mechanisms and clinical course, and establishes a national research database and biobank (2025–2040).</p>",
+
+about: "<h2>About the project</h2><p>This national project investigates causes, disease mechanisms and clinical course in children with bronchiectasis in Denmark, and establishes a research database and biobank (2025–2040).</p>",
+
 who: "<h2>Who we are</h2><p>Aarhus University Hospital (AUH), Odense University Hospital (OUH), and Rigshospitalet.</p>",
+
 patient: "<h2>Patient information</h2><p>This section provides general information for patients and families. Participation occurs within routine clinical care.</p>",
-pub: "<h2>Publications</h2><p>Add your publications here.</p>",
+
+pub: `
+<h2>Publications</h2>
+<p>
+<strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong><br>
+European Respiratory Review, 2026; 35(179): 250071<br><br>
+<a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank">
+Read the article
+</a>
+</p>
+`,
+
 registry: "<h2>Registry</h2><p>After 2040, the project continues as a national registry and biobank.</p>",
+
 contact: "<h2>Contact</h2><p>Børn og Unge, BCLA, AUH<br>auh.bronkiektasi@rm.dk</p>"
 },
 
 da: {
+nav: {
+home: "Forside",
+about: "Om projektet",
+whoweare: "Hvem er vi",
+patient: "Patientressourcer",
+publications: "Publikationer",
+registry: "Register",
+contact: "Kontakt"
+},
+
 home: "<h2>ChildBREATHE</h2><p>Nationalt multicenterprojekt om bronkiektasier hos børn i Danmark.</p>",
-about: "<h2>Om projektet</h2><p>Der findes endnu ikke danske nationale data. Projektet undersøger årsager, sygdomsmekanismer og kliniske forløb samt etablerer database og biobank (2025–2040).</p>",
+
+about: "<h2>Om projektet</h2><p>Projektet undersøger årsager, sygdomsmekanismer og kliniske forløb samt etablerer en forskningsdatabase og biobank (2025–2040).</p>",
+
 who: "<h2>Hvem er vi</h2><p>Aarhus Universitetshospital, Odense Universitetshospital og Rigshospitalet.</p>",
+
 patient: "<h2>Patientinformation</h2><p>Denne side er for patienter og pårørende. Deltagelse sker som del af klinisk behandling.</p>",
-pub: "<h2>Publikationer</h2><p>Tilføj publikationer her.</p>",
-registry: "<h2>Register</h2><p>Efter 2040 fortsætter projektet som register og biobank.</p>",
+
+pub: `
+<h2>Publikationer</h2>
+<p>
+<strong>Bronkiektasier hos børn: systematisk review af cytokinprofil og mikrobiota</strong><br>
+European Respiratory Review, 2026; 35(179): 250071<br><br>
+<a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank">
+Læs artiklen
+</a>
+</p>
+`,
+
+registry: "<h2>Register</h2><p>Efter 2040 fortsætter projektet som nationalt register og biobank.</p>",
+
 contact: "<h2>Kontakt</h2><p>Børn og Unge, BCLA, AUH<br>auh.bronkiektasi@rm.dk</p>"
 }
+
 };
 
-let lang = 'en';
+let lang = "en";
 
 function setLang(l) {
 lang = l;
 loadContent();
+updateNav();
+}
+
+function updateNav() {
+const n = content[lang].nav;
+document.querySelector("[data-page='home']").textContent = n.home;
+document.querySelector("[data-page='about']").textContent = n.about;
+document.querySelector("[data-page='whoweare']").textContent = n.whoweare;
+document.querySelector("[data-page='patient']").textContent = n.patient;
+document.querySelector("[data-page='publications']").textContent = n.publications;
+document.querySelector("[data-page='registry']").textContent = n.registry;
+document.querySelector("[data-page='contact']").textContent = n.contact;
 }
 
 function loadContent() {
-document.getElementById('homeText').innerHTML = content[lang].home;
-document.getElementById('aboutText').innerHTML = content[lang].about;
-document.getElementById('whoText').innerHTML = content[lang].who;
-document.getElementById('patientText').innerHTML = content[lang].patient;
-document.getElementById('pubText').innerHTML = content[lang].pub;
-document.getElementById('registryText').innerHTML = content[lang].registry;
-document.getElementById('contactText').innerHTML = content[lang].contact;
+document.getElementById("homeText").innerHTML = content[lang].home;
+document.getElementById("aboutText").innerHTML = content[lang].about;
+document.getElementById("whoText").innerHTML = content[lang].who;
+document.getElementById("patientText").innerHTML = content[lang].patient;
+document.getElementById("pubText").innerHTML = content[lang].pub;
+document.getElementById("registryText").innerHTML = content[lang].registry;
+document.getElementById("contactText").innerHTML = content[lang].contact;
 }
 
+updateNav();
 loadContent();
 
-const buttons = document.querySelectorAll('nav button');
+const buttons = document.querySelectorAll("nav button");
+
 buttons.forEach(btn => {
 btn.onclick = () => {
-document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-document.getElementById(btn.dataset.page).classList.add('active');
-buttons.forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
+document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+document.getElementById(btn.dataset.page).classList.add("active");
+buttons.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
 };
 });
 
