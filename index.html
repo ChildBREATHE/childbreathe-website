@@ -51,6 +51,7 @@
       --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
       --radius: 12px;
       --max-width: 1000px;
+      --news-bg: #f8fbfd;
     }
 
     * {
@@ -228,6 +229,21 @@
       border-radius: var(--radius);
       margin-bottom: 18px;
       box-shadow: var(--shadow);
+    }
+
+    .news-card {
+      background: var(--news-bg);
+      border: 1px solid var(--border);
+    }
+
+    .news-item + .news-item {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .news-item strong {
+      color: var(--text);
     }
 
     h2 {
@@ -422,6 +438,8 @@
       </section>
 
       <div class="card" id="homeText"></div>
+
+      <div class="card news-card" id="newsText"></div>
     </div>
 
     <div id="about" class="page">
@@ -502,6 +520,17 @@
           <p>This website is primarily intended for collaborators, researchers and interest organisations, while also including information for patients and families.</p>
           <p>Key focus areas include paediatric bronchiectasis in Denmark, disease burden, quality of life, microbiology, immunology, exacerbations, and long-term registry-based research infrastructure.</p>
         `,
+        news: `
+          <h2>News & updates</h2>
+
+          <div class="news-item">
+            <p><strong>Project initiation (2025):</strong> The ChildBREATHE study has been established as a national multicentre research programme in Denmark.</p>
+          </div>
+
+          <div class="news-item">
+            <p><strong>Publication (2026):</strong> A systematic review on inflammatory profiles in paediatric bronchiectasis has been published in <em>European Respiratory Review</em>.</p>
+          </div>
+        `,
         about: `
           <h2>About the project</h2>
           <p>There are currently no national Danish data on the occurrence and distribution of bronchiectasis in children. The purpose of this active national research project is to investigate causes, disease mechanisms, and clinical trajectories in children and adolescents with bronchiectasis in Denmark and to establish an associated national research database and biobank.</p>
@@ -538,7 +567,7 @@
         `,
         contact: `
           <h2>Contact</h2>
-          <p>Børn og Unge, Børnecenter for Lunge- and Allergisygdomme (BCLA), Aarhus University Hospital (AUH)</p>
+          <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus University Hospital (AUH)</p>
           <p>Email: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
         `
       },
@@ -563,6 +592,17 @@
           <p>ChildBREATHE er et nationalt multicenterprojekt om bronkiektasier hos børn i Danmark. Projektet integrerer kliniske, mikrobiologiske og immunologiske data for at forbedre forståelsen af sygdomsmekanismer, kliniske forløb og outcomes hos børn og unge med bronkiektasier.</p>
           <p>Hjemmesiden er primært rettet mod samarbejdspartnere, forskere og interesseorganisationer, men indeholder også information til patienter og pårørende.</p>
           <p>Centrale fokusområder omfatter bronkiektasier hos børn i Danmark, sygdomsbyrde, livskvalitet, mikrobiologi, immunologi, exacerbationer og langsigtet registerbaseret forskningsinfrastruktur.</p>
+        `,
+        news: `
+          <h2>Nyheder</h2>
+
+          <div class="news-item">
+            <p><strong>Projektopstart (2025):</strong> ChildBREATHE er etableret som et nationalt multicenterforskningsprojekt i Danmark.</p>
+          </div>
+
+          <div class="news-item">
+            <p><strong>Publikation (2026):</strong> Et systematisk review om inflammatoriske profiler ved bronkiektasier hos børn er publiceret i <em>European Respiratory Review</em>.</p>
+          </div>
         `,
         about: `
           <h2>Om projektet</h2>
@@ -634,6 +674,7 @@
       document.getElementById("heroButton").textContent = content[lang].hero.button;
 
       document.getElementById("homeText").innerHTML = content[lang].home;
+      document.getElementById("newsText").innerHTML = content[lang].news;
       document.getElementById("aboutText").innerHTML = content[lang].about;
       document.getElementById("whoText").innerHTML = content[lang].whoweare;
       document.getElementById("patientText").innerHTML = content[lang].patient;
