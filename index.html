@@ -54,7 +54,6 @@
       --news-bg: #f8fbfd;
       --pub-bg: #fbfcfe;
       --collab-bg: #f9fbfc;
-      --members-bg: #f8fafc;
     }
 
     * {
@@ -249,11 +248,6 @@
       border: 1px solid var(--border);
     }
 
-    .members-card {
-      background: var(--members-bg);
-      border: 1px solid var(--border);
-    }
-
     .news-item + .news-item {
       margin-top: 16px;
       padding-top: 16px;
@@ -308,6 +302,34 @@
       color: var(--text);
       display: block;
       margin-bottom: 8px;
+    }
+
+    .linkedin-footer {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .linkedin-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #0A66C2;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .linkedin-badge:hover {
+      opacity: 0.9;
+      text-decoration: none;
     }
 
     h2 {
@@ -486,7 +508,6 @@
           <button data-page="patient"></button>
           <button data-page="publications"></button>
           <button data-page="registry"></button>
-          <button data-page="members"></button>
           <button data-page="contact"></button>
         </nav>
       </div>
@@ -535,10 +556,6 @@
       <div class="card" id="registryText"></div>
     </div>
 
-    <div id="members" class="page">
-      <div class="card members-card" id="membersText"></div>
-    </div>
-
     <div id="contact" class="page">
       <div class="card" id="contactText"></div>
     </div>
@@ -570,10 +587,11 @@
           <a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">OUH</a> ·
           <a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a>
         </p>
-        <p>
-          LinkedIn:
-          <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a>
-        </p>
+
+        <div class="linkedin-footer">
+          <a class="linkedin-badge" href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer" aria-label="ChildBREATHE on LinkedIn">in</a>
+          <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -588,7 +606,6 @@
           patient: "Patient Resources",
           publications: "Publications",
           registry: "Registry",
-          members: "Members",
           contact: "Contact"
         },
         hero: {
@@ -637,12 +654,26 @@
         `,
         whoweare: `
           <h2>Who we are</h2>
-          <p>The project takes place at:</p>
-          <ul>
-            <li><a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">Aarhus University Hospital (AUH)</a></li>
-            <li><a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">Odense University Hospital (OUH)</a></li>
-            <li><a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a></li>
-          </ul>
+
+          <div class="member-group">
+            <strong>Participating centres</strong>
+            <p>The project takes place across three national centres:</p>
+            <ul>
+              <li><a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">Aarhus University Hospital (AUH)</a></li>
+              <li><a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">Odense University Hospital (OUH)</a></li>
+              <li><a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a></li>
+            </ul>
+          </div>
+
+          <div class="member-group">
+            <strong>Clinical and academic collaboration</strong>
+            <p>ChildBREATHE brings together paediatric respiratory expertise, translational research perspectives, and registry-based infrastructure to support long-term research in paediatric bronchiectasis.</p>
+          </div>
+
+          <div class="member-group">
+            <strong>Professional network</strong>
+            <p>Follow ChildBREATHE on LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
+          </div>
         `,
         patient: `
           <h2>Patient Resources</h2>
@@ -662,24 +693,6 @@
           <p>Following the active research phase, data and biological material will continue as a national registry and biobank platform.</p>
           <p>This platform is intended to support future approved research projects and long-term infrastructure for paediatric bronchiectasis research.</p>
         `,
-        members: `
-          <h2>Members</h2>
-
-          <div class="member-group">
-            <strong>Core project environment</strong>
-            <p>ChildBREATHE is conducted within a national multicentre collaboration involving Aarhus University Hospital, Odense University Hospital, and Rigshospitalet.</p>
-          </div>
-
-          <div class="member-group">
-            <strong>Clinical and academic collaboration</strong>
-            <p>The project brings together clinical paediatric respiratory expertise, translational research perspectives, and registry-based infrastructure to support long-term research in paediatric bronchiectasis.</p>
-          </div>
-
-          <div class="member-group">
-            <strong>Project updates and professional network</strong>
-            <p>Follow ChildBREATHE on LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
-          </div>
-        `,
         contact: `
           <h2>Contact</h2>
           <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus University Hospital (AUH)</p>
@@ -696,7 +709,6 @@
           patient: "Patientressourcer",
           publications: "Publikationer",
           registry: "Register",
-          members: "Medlemmer",
           contact: "Kontakt"
         },
         hero: {
@@ -745,12 +757,26 @@
         `,
         whoweare: `
           <h2>Hvem er vi</h2>
-          <p>Projektet finder sted på:</p>
-          <ul>
-            <li><a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">Aarhus Universitetshospital (AUH)</a></li>
-            <li><a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">Odense Universitetshospital (OUH)</a></li>
-            <li><a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a></li>
-          </ul>
+
+          <div class="member-group">
+            <strong>Deltagende centre</strong>
+            <p>Projektet finder sted på tre nationale centre:</p>
+            <ul>
+              <li><a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">Aarhus Universitetshospital (AUH)</a></li>
+              <li><a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">Odense Universitetshospital (OUH)</a></li>
+              <li><a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a></li>
+            </ul>
+          </div>
+
+          <div class="member-group">
+            <strong>Klinisk og akademisk samarbejde</strong>
+            <p>ChildBREATHE samler pædiatrisk lungemedicinsk ekspertise, translationelle forskningsperspektiver og registerbaseret infrastruktur for at understøtte langsigtet forskning i bronkiektasier hos børn.</p>
+          </div>
+
+          <div class="member-group">
+            <strong>Fagligt netværk</strong>
+            <p>Følg ChildBREATHE på LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
+          </div>
         `,
         patient: `
           <h2>Patientressourcer</h2>
@@ -769,24 +795,6 @@
           <h2>Register</h2>
           <p>Efter den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform.</p>
           <p>Platformen skal understøtte fremtidige godkendte forskningsprojekter og en langsigtet infrastruktur for forskning i bronkiektasier hos børn.</p>
-        `,
-        members: `
-          <h2>Medlemmer</h2>
-
-          <div class="member-group">
-            <strong>Kerneprojektmiljø</strong>
-            <p>ChildBREATHE gennemføres i et nationalt multicentersamarbejde med deltagelse af Aarhus Universitetshospital, Odense Universitetshospital og Rigshospitalet.</p>
-          </div>
-
-          <div class="member-group">
-            <strong>Klinisk og akademisk samarbejde</strong>
-            <p>Projektet samler pædiatrisk lungemedicinsk ekspertise, translationelle forskningsperspektiver og registerbaseret infrastruktur for at understøtte langsigtet forskning i bronkiektasier hos børn.</p>
-          </div>
-
-          <div class="member-group">
-            <strong>Projektopdateringer og fagligt netværk</strong>
-            <p>Følg ChildBREATHE på LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
-          </div>
         `,
         contact: `
           <h2>Kontakt</h2>
@@ -814,7 +822,6 @@
       document.querySelector("[data-page='patient']").textContent = n.patient;
       document.querySelector("[data-page='publications']").textContent = n.publications;
       document.querySelector("[data-page='registry']").textContent = n.registry;
-      document.querySelector("[data-page='members']").textContent = n.members;
       document.querySelector("[data-page='contact']").textContent = n.contact;
       document.getElementById("menuLabel").textContent = "Menu";
       document.documentElement.lang = lang;
@@ -834,7 +841,6 @@
       document.getElementById("patientText").innerHTML = content[lang].patient;
       document.getElementById("pubText").innerHTML = content[lang].publications;
       document.getElementById("registryText").innerHTML = content[lang].registry;
-      document.getElementById("membersText").innerHTML = content[lang].members;
       document.getElementById("contactText").innerHTML = content[lang].contact;
     }
 
