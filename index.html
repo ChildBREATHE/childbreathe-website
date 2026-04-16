@@ -52,6 +52,7 @@
       --radius: 12px;
       --max-width: 1000px;
       --news-bg: #f8fbfd;
+      --pub-bg: #fbfcfe;
     }
 
     * {
@@ -236,6 +237,11 @@
       border: 1px solid var(--border);
     }
 
+    .featured-card {
+      background: var(--pub-bg);
+      border: 1px solid var(--border);
+    }
+
     .news-item + .news-item {
       margin-top: 16px;
       padding-top: 16px;
@@ -244,6 +250,31 @@
 
     .news-item strong {
       color: var(--text);
+    }
+
+    .pub-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    .pub-title {
+      font-size: 18px;
+      line-height: 1.5;
+      margin: 0 0 12px;
+    }
+
+    .pub-title a {
+      color: var(--text);
+    }
+
+    .pub-title a:hover {
+      color: var(--primary-light);
     }
 
     h2 {
@@ -388,6 +419,10 @@
         font-size: 15px;
       }
 
+      .pub-title {
+        font-size: 16px;
+      }
+
       h2 {
         font-size: 24px;
       }
@@ -440,6 +475,8 @@
       <div class="card" id="homeText"></div>
 
       <div class="card news-card" id="newsText"></div>
+
+      <div class="card featured-card" id="featuredPub"></div>
     </div>
 
     <div id="about" class="page">
@@ -531,6 +568,16 @@
             <p><strong>Publication (2026):</strong> A systematic review on inflammatory profiles in paediatric bronchiectasis has been published in <em>European Respiratory Review</em>.</p>
           </div>
         `,
+        featuredPub: `
+          <div class="pub-label">📄 Featured publication</div>
+          <p class="pub-title">
+            <a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">
+              <strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong>
+            </a>
+          </p>
+          <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
+          <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
+        `,
         about: `
           <h2>About the project</h2>
           <p>There are currently no national Danish data on the occurrence and distribution of bronchiectasis in children. The purpose of this active national research project is to investigate causes, disease mechanisms, and clinical trajectories in children and adolescents with bronchiectasis in Denmark and to establish an associated national research database and biobank.</p>
@@ -604,6 +651,16 @@
             <p><strong>Publikation (2026):</strong> Et systematisk review om inflammatoriske profiler ved bronkiektasier hos børn er publiceret i <em>European Respiratory Review</em>.</p>
           </div>
         `,
+        featuredPub: `
+          <div class="pub-label">📄 Fremhævet publikation</div>
+          <p class="pub-title">
+            <a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">
+              <strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong>
+            </a>
+          </p>
+          <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
+          <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
+        `,
         about: `
           <h2>Om projektet</h2>
           <p>I Danmark findes der endnu ikke nationale data om forekomst og udbredelse af bronkiektasier hos børn. Formålet med dette aktive nationale forskningsprojekt er at undersøge årsager, sygdomsmekanismer og kliniske forløb hos børn og unge med bronkiektasier i Danmark samt at etablere en tilknyttet national forskningsdatabase og biobank.</p>
@@ -675,6 +732,7 @@
 
       document.getElementById("homeText").innerHTML = content[lang].home;
       document.getElementById("newsText").innerHTML = content[lang].news;
+      document.getElementById("featuredPub").innerHTML = content[lang].featuredPub;
       document.getElementById("aboutText").innerHTML = content[lang].about;
       document.getElementById("whoText").innerHTML = content[lang].whoweare;
       document.getElementById("patientText").innerHTML = content[lang].patient;
