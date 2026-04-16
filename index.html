@@ -53,6 +53,7 @@
       --max-width: 1000px;
       --news-bg: #f8fbfd;
       --pub-bg: #fbfcfe;
+      --collab-bg: #f9fbfc;
     }
 
     * {
@@ -242,6 +243,11 @@
       border: 1px solid var(--border);
     }
 
+    .collaborator-card {
+      background: var(--collab-bg);
+      border: 1px solid var(--border);
+    }
+
     .news-item + .news-item {
       margin-top: 16px;
       padding-top: 16px;
@@ -275,6 +281,15 @@
 
     .pub-title a:hover {
       color: var(--primary-light);
+    }
+
+    .contact-line {
+      margin-top: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     h2 {
@@ -477,6 +492,8 @@
       <div class="card news-card" id="newsText"></div>
 
       <div class="card featured-card" id="featuredPub"></div>
+
+      <div class="card collaborator-card" id="collaboratorBox"></div>
     </div>
 
     <div id="about" class="page">
@@ -578,6 +595,11 @@
           <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
           <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
         `,
+        collaboratorBox: `
+          <h2>For collaborators</h2>
+          <p>Collaborators interested in participating in the project or discussing future research opportunities are encouraged to contact the study team.</p>
+          <p class="contact-line">📧 <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
+        `,
         about: `
           <h2>About the project</h2>
           <p>There are currently no national Danish data on the occurrence and distribution of bronchiectasis in children. The purpose of this active national research project is to investigate causes, disease mechanisms, and clinical trajectories in children and adolescents with bronchiectasis in Denmark and to establish an associated national research database and biobank.</p>
@@ -661,6 +683,11 @@
           <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
           <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
         `,
+        collaboratorBox: `
+          <h2>For samarbejdspartnere</h2>
+          <p>Samarbejdspartnere, der er interesserede i at deltage i projektet eller drøfte fremtidige forskningsmuligheder, er velkomne til at kontakte projektgruppen.</p>
+          <p class="contact-line">📧 <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
+        `,
         about: `
           <h2>Om projektet</h2>
           <p>I Danmark findes der endnu ikke nationale data om forekomst og udbredelse af bronkiektasier hos børn. Formålet med dette aktive nationale forskningsprojekt er at undersøge årsager, sygdomsmekanismer og kliniske forløb hos børn og unge med bronkiektasier i Danmark samt at etablere en tilknyttet national forskningsdatabase og biobank.</p>
@@ -733,6 +760,7 @@
       document.getElementById("homeText").innerHTML = content[lang].home;
       document.getElementById("newsText").innerHTML = content[lang].news;
       document.getElementById("featuredPub").innerHTML = content[lang].featuredPub;
+      document.getElementById("collaboratorBox").innerHTML = content[lang].collaboratorBox;
       document.getElementById("aboutText").innerHTML = content[lang].about;
       document.getElementById("whoText").innerHTML = content[lang].whoweare;
       document.getElementById("patientText").innerHTML = content[lang].patient;
