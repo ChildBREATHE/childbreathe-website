@@ -7,18 +7,16 @@
   <meta name="description" content="ChildBREATHE is a national multicentre research project on paediatric bronchiectasis in Denmark, integrating clinical, microbiological and immunological data.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://childbreathe.com/">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="alternate" hreflang="en" href="https://childbreathe.com/">
+  <link rel="alternate" hreflang="da" href="https://childbreathe.com/da/">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/styles.css">
 
   <meta property="og:title" content="ChildBREATHE – Paediatric Bronchiectasis Research in Denmark">
   <meta property="og:description" content="National multicentre research project on paediatric bronchiectasis in Denmark.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://childbreathe.com/">
   <meta property="og:image" content="https://childbreathe.com/logo-int.png">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ChildBREATHE – Paediatric Bronchiectasis Research in Denmark">
-  <meta name="twitter:description" content="National multicentre research project on paediatric bronchiectasis in Denmark.">
-  <meta name="twitter:image" content="https://childbreathe.com/logo-int.png">
 
   <script type="application/ld+json">
   {
@@ -37,557 +35,89 @@
     }
   }
   </script>
-
-  <style>
-    :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --text: #1f2937;
-      --muted: #4b5563;
-      --primary: #0b3c5d;
-      --primary-light: #1f77b4;
-      --border: #d1d9e0;
-      --footer-bg: #eef2f6;
-      --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-      --radius: 12px;
-      --max-width: 1000px;
-      --news-bg: #f8fbfd;
-      --pub-bg: #fbfcfe;
-      --collab-bg: #f9fbfc;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    a {
-      color: var(--primary-light);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .logo-text {
-      font-weight: bold;
-      font-size: 22px;
-      letter-spacing: 0.2px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-left: auto;
-      flex-wrap: wrap;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    nav button,
-    .menu-toggle,
-    .flag-btn {
-      padding: 9px 13px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      background: white;
-      color: var(--primary);
-      font-size: 14px;
-      transition: 0.2s ease;
-    }
-
-    nav button:hover,
-    .menu-toggle:hover,
-    .flag-btn:hover {
-      opacity: 0.92;
-    }
-
-    nav button.active {
-      background: var(--primary-light);
-      color: white;
-    }
-
-    .flags {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .flag-btn {
-      min-width: 46px;
-      padding: 8px 10px;
-      font-size: 20px;
-      line-height: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .flag-btn.active-lang {
-      background: var(--primary-light);
-      color: white;
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.25);
-    }
-
-    .menu-toggle {
-      display: none;
-      font-weight: bold;
-    }
-
-    .mobile-panel {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px 20px;
-    }
-
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0b3c5d, #1f77b4);
-      color: white;
-      border-radius: 14px;
-      padding: 40px 30px;
-      margin-bottom: 25px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 34px;
-      line-height: 1.2;
-      color: white;
-    }
-
-    .hero p {
-      margin: 0 0 18px;
-      font-size: 17px;
-      color: #e5edf5;
-      max-width: 650px;
-      line-height: 1.7;
-    }
-
-    .hero button {
-      background: white;
-      color: var(--primary);
-      border: none;
-      padding: 10px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .hero button:hover {
-      background: #f0f0f0;
-    }
-
-    .card {
-      background: var(--surface);
-      padding: 24px;
-      border-radius: var(--radius);
-      margin-bottom: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .news-card {
-      background: var(--news-bg);
-      border: 1px solid var(--border);
-    }
-
-    .featured-card {
-      background: var(--pub-bg);
-      border: 1px solid var(--border);
-    }
-
-    .collaborator-card {
-      background: var(--collab-bg);
-      border: 1px solid var(--border);
-    }
-
-    .news-item + .news-item {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .news-item strong {
-      color: var(--text);
-    }
-
-    .pub-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: bold;
-      color: var(--primary);
-      margin-bottom: 12px;
-      letter-spacing: 0.2px;
-    }
-
-    .pub-title {
-      font-size: 18px;
-      line-height: 1.5;
-      margin: 0 0 12px;
-    }
-
-    .pub-title a {
-      color: var(--text);
-    }
-
-    .pub-title a:hover {
-      color: var(--primary-light);
-    }
-
-    .contact-line {
-      margin-top: 12px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .member-group + .member-group {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-    }
-
-    .member-group strong {
-      color: var(--text);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .linkedin-footer {
-      margin-top: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .linkedin-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: #0A66C2;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      text-decoration: none;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-
-    .linkedin-badge:hover {
-      opacity: 0.9;
-      text-decoration: none;
-    }
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 16px;
-      font-size: 30px;
-      line-height: 1.2;
-      color: var(--text);
-    }
-
-    p, li {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 12px;
-      margin-bottom: 0;
-    }
-
-    footer {
-      background: var(--footer-bg);
-      color: var(--text);
-      padding: 40px 20px;
-      margin-top: 48px;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .footer-logos {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-logos img {
-      height: 52px;
-      width: auto;
-      background: white;
-      padding: 6px;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-    }
-
-    .footer-text p {
-      margin: 6px 0;
-      font-size: 14px;
-      line-height: 1.65;
-      color: #374151;
-    }
-
-    @media (max-width: 900px) {
-      header {
-        align-items: flex-start;
-      }
-
-      .header-right {
-        width: 100%;
-        justify-content: space-between;
-      }
-    }
-
-    @media (max-width: 700px) {
-      header {
-        padding: 12px 14px;
-        align-items: center;
-      }
-
-      .logo-text {
-        font-size: 20px;
-      }
-
-      .menu-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .mobile-panel {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        margin-top: 10px;
-      }
-
-      .mobile-panel.open {
-        display: flex;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-      }
-
-      nav button {
-        width: 100%;
-        text-align: left;
-        padding: 10px 12px;
-        font-size: 14px;
-        border-radius: 10px;
-      }
-
-      .flags {
-        gap: 6px;
-      }
-
-      .flag-btn {
-        min-width: 42px;
-        font-size: 18px;
-      }
-
-      .container {
-        padding: 14px;
-      }
-
-      .card {
-        padding: 18px;
-        border-radius: 10px;
-      }
-
-      .hero {
-        padding: 26px 20px;
-      }
-
-      .hero h1 {
-        font-size: 26px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .pub-title {
-        font-size: 16px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      p, li {
-        font-size: 15px;
-      }
-
-      .footer-logos img {
-        height: 46px;
-      }
-    }
-  </style>
 </head>
 <body>
-
   <header>
-    <div class="logo-text" onclick="goHome()">ChildBREATHE</div>
+    <a class="logo-text" href="/">ChildBREATHE</a>
 
     <div class="header-right">
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">☰ <span id="menuLabel">Menu</span></button>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" onclick="toggleMenu()">☰ Menu</button>
 
       <div class="mobile-panel" id="mobileMenu">
         <nav>
-          <button data-page="home"></button>
-          <button data-page="about"></button>
-          <button data-page="whoweare"></button>
-          <button data-page="patient"></button>
-          <button data-page="publications"></button>
-          <button data-page="registry"></button>
-          <button data-page="contact"></button>
+          <a href="/" class="active">Home</a>
+          <a href="/about/">About</a>
+          <a href="/who-we-are/">Who we are</a>
+          <a href="/patient-resources/">Patient Resources</a>
+          <a href="/publications/">Publications</a>
+          <a href="/registry/">Registry</a>
+          <a href="/contact/">Contact</a>
         </nav>
       </div>
 
       <div class="flags">
-        <button id="btn-en" class="flag-btn" type="button" onclick="setLang('en')" aria-label="English">🇬🇧</button>
-        <button id="btn-da" class="flag-btn" type="button" onclick="setLang('da')" aria-label="Dansk">🇩🇰</button>
+        <a class="flag-link active-lang" href="/" aria-label="English">🇬🇧</a>
+        <a class="flag-link" href="/da/" aria-label="Dansk">🇩🇰</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <div id="home" class="page active">
-      <section class="hero">
-        <h1 id="heroTitle"></h1>
-        <p id="heroText"></p>
-        <button type="button" onclick="goToPublications()" id="heroButton"></button>
-      </section>
+    <section class="hero">
+      <h1>Advancing paediatric bronchiectasis research</h1>
+      <p>ChildBREATHE is a national multicentre initiative combining clinical, microbiological and immunological data to improve understanding and outcomes in children with bronchiectasis.</p>
+      <a class="hero-button" href="/publications/">View publication</a>
+    </section>
 
-      <div class="card" id="homeText"></div>
-
-      <div class="card news-card" id="newsText"></div>
-
-      <div class="card featured-card" id="featuredPub"></div>
-
-      <div class="card collaborator-card" id="collaboratorBox"></div>
+    <div class="card">
+      <h2>ChildBREATHE</h2>
+      <p>ChildBREATHE is a national multicentre paediatric bronchiectasis research project in Denmark. The project integrates clinical, microbiological and immunological data to improve understanding of disease mechanisms, clinical trajectories and outcomes in children and adolescents with bronchiectasis.</p>
+      <p>This website is primarily intended for collaborators, researchers and interest organisations, while also including information for patients and families.</p>
+      <p>Key focus areas include paediatric bronchiectasis in Denmark, disease burden, quality of life, microbiology, immunology, exacerbations, and long-term registry-based research infrastructure.</p>
     </div>
 
-    <div id="about" class="page">
-      <div class="card" id="aboutText"></div>
+    <div class="card news-card">
+      <h2>News & updates</h2>
+      <div class="news-item">
+        <p><strong>Project initiation (2025):</strong> The ChildBREATHE study has been established as a national multicentre research programme in Denmark.</p>
+      </div>
+      <div class="news-item">
+        <p><strong>Publication (2026):</strong> A systematic review on inflammatory profiles in paediatric bronchiectasis has been published in <em>European Respiratory Review</em>.</p>
+      </div>
     </div>
 
-    <div id="whoweare" class="page">
-      <div class="card" id="whoText"></div>
+    <div class="card featured-card">
+      <div class="pub-label">📄 Featured publication</div>
+      <p class="pub-title">
+        <a href="/publications/"><strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong></a>
+      </p>
+      <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
+      <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
     </div>
 
-    <div id="patient" class="page">
-      <div class="card" id="patientText"></div>
-    </div>
-
-    <div id="publications" class="page">
-      <div class="card" id="pubText"></div>
-    </div>
-
-    <div id="registry" class="page">
-      <div class="card" id="registryText"></div>
-    </div>
-
-    <div id="contact" class="page">
-      <div class="card" id="contactText"></div>
+    <div class="card collaborator-card">
+      <h2>For collaborators</h2>
+      <p>Collaborators interested in participating in the project or discussing future research opportunities are encouraged to contact the study team.</p>
+      <p class="contact-line">📧 <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
     </div>
   </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-logos">
-        <img src="logo-int.png" alt="ChildBREATHE international logo">
-        <img src="logo-dk.png" alt="ChildBREATHE Denmark logo">
+        <img src="/logo-int.png" alt="ChildBREATHE international logo">
+        <img src="/logo-dk.png" alt="ChildBREATHE Denmark logo">
       </div>
-
       <div class="footer-text">
         <p>© 2026 ChildBREATHE</p>
         <p>All rights reserved</p>
-        <p>
-          Affiliated with<br>
-          Department of Paediatrics and Adolescent Medicine<br>
-          Aarhus University Hospital
-        </p>
-        <p>
-          Palle Juul-Jensens Blvd. 127, Entrance H8<br>
-          8200 Aarhus<br>
-          Denmark
-        </p>
-        <p>
-          Collaborating institutions:
+        <p>Affiliated with<br>Department of Paediatrics and Adolescent Medicine<br>Aarhus University Hospital</p>
+        <p>Palle Juul-Jensens Blvd. 127, Entrance H8<br>8200 Aarhus<br>Denmark</p>
+        <p>Collaborating institutions:
           <a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">AUH</a> ·
           <a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">OUH</a> ·
           <a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a>
         </p>
-
         <div class="linkedin-footer">
           <a class="linkedin-badge" href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer" aria-label="ChildBREATHE on LinkedIn">in</a>
           <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -596,296 +126,6 @@
     </div>
   </footer>
 
-  <script>
-    const content = {
-      en: {
-        nav: {
-          home: "Home",
-          about: "About",
-          whoweare: "Who we are",
-          patient: "Patient Resources",
-          publications: "Publications",
-          registry: "Registry",
-          contact: "Contact"
-        },
-        hero: {
-          title: "Advancing paediatric bronchiectasis research",
-          text: "ChildBREATHE is a national multicentre initiative combining clinical, microbiological and immunological data to improve understanding and outcomes in children with bronchiectasis.",
-          button: "View publication"
-        },
-        home: `
-          <h2>ChildBREATHE</h2>
-          <p>ChildBREATHE is a national multicentre paediatric bronchiectasis research project in Denmark. The project integrates clinical, microbiological and immunological data to improve understanding of disease mechanisms, clinical trajectories and outcomes in children and adolescents with bronchiectasis.</p>
-          <p>This website is primarily intended for collaborators, researchers and interest organisations, while also including information for patients and families.</p>
-          <p>Key focus areas include paediatric bronchiectasis in Denmark, disease burden, quality of life, microbiology, immunology, exacerbations, and long-term registry-based research infrastructure.</p>
-        `,
-        news: `
-          <h2>News & updates</h2>
-
-          <div class="news-item">
-            <p><strong>Project initiation (2025):</strong> The ChildBREATHE study has been established as a national multicentre research programme in Denmark.</p>
-          </div>
-
-          <div class="news-item">
-            <p><strong>Publication (2026):</strong> A systematic review on inflammatory profiles in paediatric bronchiectasis has been published in <em>European Respiratory Review</em>.</p>
-          </div>
-        `,
-        featuredPub: `
-          <div class="pub-label">📄 Featured publication</div>
-          <p class="pub-title">
-            <a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">
-              <strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong>
-            </a>
-          </p>
-          <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
-          <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
-        `,
-        collaboratorBox: `
-          <h2>For collaborators</h2>
-          <p>Collaborators interested in participating in the project or discussing future research opportunities are encouraged to contact the study team.</p>
-          <p class="contact-line">📧 <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
-        `,
-        about: `
-          <h2>About the project</h2>
-          <p>There are currently no national Danish data on the occurrence and distribution of bronchiectasis in children. The purpose of this active national research project is to investigate causes, disease mechanisms, and clinical trajectories in children and adolescents with bronchiectasis in Denmark and to establish an associated national research database and biobank.</p>
-          <p>The project is conducted as a 15-year active research programme from 2025 to 2040 and combines clinical data, patient-reported information, microbiological and immunological analyses, and information from acute exacerbations.</p>
-          <p>The aim is to describe disease aetiology, immunological and microbial characteristics, and how disease burden, treatment, and quality of life influence the clinical course.</p>
-          <p>After completion of the active research phase, data and biological material will continue as a national registry and biobank platform for future approved research projects.</p>
-        `,
-        whoweare: `
-          <h2>Who we are</h2>
-
-          <div class="member-group">
-            <strong>Participating centres</strong>
-            <p>The project takes place across three national centres:</p>
-            <ul>
-              <li><a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">Aarhus University Hospital (AUH)</a></li>
-              <li><a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">Odense University Hospital (OUH)</a></li>
-              <li><a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a></li>
-            </ul>
-          </div>
-
-          <div class="member-group">
-            <strong>Clinical and academic collaboration</strong>
-            <p>ChildBREATHE brings together paediatric respiratory expertise, translational research perspectives, and registry-based infrastructure to support long-term research in paediatric bronchiectasis.</p>
-          </div>
-
-          <div class="member-group">
-            <strong>Professional network</strong>
-            <p>Follow ChildBREATHE on LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
-          </div>
-        `,
-        patient: `
-          <h2>Patient Resources</h2>
-          <p>This section provides general information for patients and families.</p>
-          <p>The project is linked to established clinical settings, and participation and study-related procedures take place within usual clinical care pathways.</p>
-          <p>Further practical information can be provided by the local clinical team.</p>
-        `,
-        publications: `
-          <h2>Publications</h2>
-          <p><strong>Thomsen CMK, et al. Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid.</strong></p>
-          <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
-          <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
-          <p><a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">Read the article</a></p>
-        `,
-        registry: `
-          <h2>Registry</h2>
-          <p>Following the active research phase, data and biological material will continue as a national registry and biobank platform.</p>
-          <p>This platform is intended to support future approved research projects and long-term infrastructure for paediatric bronchiectasis research.</p>
-        `,
-        contact: `
-          <h2>Contact</h2>
-          <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus University Hospital (AUH)</p>
-          <p>Email: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
-        `
-      },
-
-      da: {
-        nav: {
-          home: "Forside",
-          about: "Om projektet",
-          whoweare: "Hvem er vi",
-          patient: "Patientressourcer",
-          publications: "Publikationer",
-          registry: "Register",
-          contact: "Kontakt"
-        },
-        hero: {
-          title: "Fremtidens forskning i bronkiektasier hos børn",
-          text: "ChildBREATHE er et nationalt multicenterprojekt, der kombinerer kliniske, mikrobiologiske og immunologiske data for at forbedre forståelse og outcomes hos børn med bronkiektasier.",
-          button: "Se publikation"
-        },
-        home: `
-          <h2>ChildBREATHE</h2>
-          <p>ChildBREATHE er et nationalt multicenterprojekt om bronkiektasier hos børn i Danmark. Projektet integrerer kliniske, mikrobiologiske og immunologiske data for at forbedre forståelsen af sygdomsmekanismer, kliniske forløb og outcomes hos børn og unge med bronkiektasier.</p>
-          <p>Hjemmesiden er primært rettet mod samarbejdspartnere, forskere og interesseorganisationer, men indeholder også information til patienter og pårørende.</p>
-          <p>Centrale fokusområder omfatter bronkiektasier hos børn i Danmark, sygdomsbyrde, livskvalitet, mikrobiologi, immunologi, exacerbationer og langsigtet registerbaseret forskningsinfrastruktur.</p>
-        `,
-        news: `
-          <h2>Nyheder</h2>
-
-          <div class="news-item">
-            <p><strong>Projektopstart (2025):</strong> ChildBREATHE er etableret som et nationalt multicenterforskningsprojekt i Danmark.</p>
-          </div>
-
-          <div class="news-item">
-            <p><strong>Publikation (2026):</strong> Et systematisk review om inflammatoriske profiler ved bronkiektasier hos børn er publiceret i <em>European Respiratory Review</em>.</p>
-          </div>
-        `,
-        featuredPub: `
-          <div class="pub-label">📄 Fremhævet publikation</div>
-          <p class="pub-title">
-            <a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">
-              <strong>Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid</strong>
-            </a>
-          </p>
-          <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
-          <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
-        `,
-        collaboratorBox: `
-          <h2>For samarbejdspartnere</h2>
-          <p>Samarbejdspartnere, der er interesserede i at deltage i projektet eller drøfte fremtidige forskningsmuligheder, er velkomne til at kontakte projektgruppen.</p>
-          <p class="contact-line">📧 <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
-        `,
-        about: `
-          <h2>Om projektet</h2>
-          <p>I Danmark findes der endnu ikke nationale data om forekomst og udbredelse af bronkiektasier hos børn. Formålet med dette aktive nationale forskningsprojekt er at undersøge årsager, sygdomsmekanismer og kliniske forløb hos børn og unge med bronkiektasier i Danmark samt at etablere en tilknyttet national forskningsdatabase og biobank.</p>
-          <p>Projektet gennemføres som et 15-årigt aktivt forskningsprogram fra 2025 til 2040 og kombinerer kliniske data, patientrapporterede oplysninger, mikrobiologiske og immunologiske analyser samt information fra akutte exacerbationer.</p>
-          <p>Formålet er at beskrive sygdommens ætiologi, immunologiske og mikrobielle kendetegn samt hvordan sygdomsbyrde, behandling og livskvalitet påvirker det kliniske forløb.</p>
-          <p>Efter afslutning af den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform til fremtidige godkendte forskningsprojekter.</p>
-        `,
-        whoweare: `
-          <h2>Hvem er vi</h2>
-
-          <div class="member-group">
-            <strong>Deltagende centre</strong>
-            <p>Projektet finder sted på tre nationale centre:</p>
-            <ul>
-              <li><a href="https://www.auh.dk" target="_blank" rel="noopener noreferrer">Aarhus Universitetshospital (AUH)</a></li>
-              <li><a href="https://www.ouh.dk" target="_blank" rel="noopener noreferrer">Odense Universitetshospital (OUH)</a></li>
-              <li><a href="https://www.rigshospitalet.dk" target="_blank" rel="noopener noreferrer">Rigshospitalet</a></li>
-            </ul>
-          </div>
-
-          <div class="member-group">
-            <strong>Klinisk og akademisk samarbejde</strong>
-            <p>ChildBREATHE samler pædiatrisk lungemedicinsk ekspertise, translationelle forskningsperspektiver og registerbaseret infrastruktur for at understøtte langsigtet forskning i bronkiektasier hos børn.</p>
-          </div>
-
-          <div class="member-group">
-            <strong>Fagligt netværk</strong>
-            <p>Følg ChildBREATHE på LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
-          </div>
-        `,
-        patient: `
-          <h2>Patientressourcer</h2>
-          <p>Denne sektion giver generel information til patienter og pårørende.</p>
-          <p>Projektet er knyttet til etablerede kliniske rammer, og deltagelse samt projektrelaterede procedurer foregår som led i de sædvanlige kliniske forløb.</p>
-          <p>Yderligere praktisk information kan gives af det lokale kliniske team.</p>
-        `,
-        publications: `
-          <h2>Publikationer</h2>
-          <p><strong>Thomsen CMK, m.fl. Bronchiectasis in children: a systematic review of cytokine profile, immune cell phenotypes and microbiota in bronchoalveolar lavage fluid.</strong></p>
-          <p><em>European Respiratory Review</em>. 2026;35(179):250071.</p>
-          <p>DOI: <a href="https://doi.org/10.1183/16000617.0071-2025" target="_blank" rel="noopener noreferrer">10.1183/16000617.0071-2025</a></p>
-          <p><a href="https://publications.ersnet.org/content/errev/35/179/250071" target="_blank" rel="noopener noreferrer">Læs artiklen</a></p>
-        `,
-        registry: `
-          <h2>Register</h2>
-          <p>Efter den aktive forskningsfase videreføres data og biologisk materiale som en national register- og biobankplatform.</p>
-          <p>Platformen skal understøtte fremtidige godkendte forskningsprojekter og en langsigtet infrastruktur for forskning i bronkiektasier hos børn.</p>
-        `,
-        contact: `
-          <h2>Kontakt</h2>
-          <p>Børn og Unge, Børnecenter for Lunge- og Allergisygdomme (BCLA), Aarhus Universitetshospital (AUH)</p>
-          <p>E-mail: <a href="mailto:auh.bronkiektasi@rm.dk">auh.bronkiektasi@rm.dk</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/company/childbreathe" target="_blank" rel="noopener noreferrer">linkedin.com/company/childbreathe</a></p>
-        `
-      }
-    };
-
-    let lang = "en";
-
-    function setLang(l) {
-      lang = l;
-      updateNav();
-      loadContent();
-      updateLanguageButtons();
-    }
-
-    function updateNav() {
-      const n = content[lang].nav;
-      document.querySelector("[data-page='home']").textContent = n.home;
-      document.querySelector("[data-page='about']").textContent = n.about;
-      document.querySelector("[data-page='whoweare']").textContent = n.whoweare;
-      document.querySelector("[data-page='patient']").textContent = n.patient;
-      document.querySelector("[data-page='publications']").textContent = n.publications;
-      document.querySelector("[data-page='registry']").textContent = n.registry;
-      document.querySelector("[data-page='contact']").textContent = n.contact;
-      document.getElementById("menuLabel").textContent = "Menu";
-      document.documentElement.lang = lang;
-    }
-
-    function loadContent() {
-      document.getElementById("heroTitle").textContent = content[lang].hero.title;
-      document.getElementById("heroText").textContent = content[lang].hero.text;
-      document.getElementById("heroButton").textContent = content[lang].hero.button;
-
-      document.getElementById("homeText").innerHTML = content[lang].home;
-      document.getElementById("newsText").innerHTML = content[lang].news;
-      document.getElementById("featuredPub").innerHTML = content[lang].featuredPub;
-      document.getElementById("collaboratorBox").innerHTML = content[lang].collaboratorBox;
-      document.getElementById("aboutText").innerHTML = content[lang].about;
-      document.getElementById("whoText").innerHTML = content[lang].whoweare;
-      document.getElementById("patientText").innerHTML = content[lang].patient;
-      document.getElementById("pubText").innerHTML = content[lang].publications;
-      document.getElementById("registryText").innerHTML = content[lang].registry;
-      document.getElementById("contactText").innerHTML = content[lang].contact;
-    }
-
-    function updateLanguageButtons() {
-      document.getElementById("btn-en").classList.remove("active-lang");
-      document.getElementById("btn-da").classList.remove("active-lang");
-      document.getElementById("btn-" + lang).classList.add("active-lang");
-    }
-
-    function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("open");
-    }
-
-    function showPage(pageId) {
-      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-      document.getElementById(pageId).classList.add("active");
-
-      document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
-      const activeBtn = document.querySelector(`[data-page='${pageId}']`);
-      if (activeBtn) activeBtn.classList.add("active");
-
-      if (window.innerWidth <= 700) {
-        document.getElementById("mobileMenu").classList.remove("open");
-      }
-    }
-
-    function goHome() {
-      showPage("home");
-    }
-
-    function goToPublications() {
-      showPage("publications");
-    }
-
-    const buttons = document.querySelectorAll("nav button");
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        showPage(btn.dataset.page);
-      });
-    });
-
-    updateNav();
-    loadContent();
-    updateLanguageButtons();
-    showPage("home");
-  </script>
+  <script src="/script.js"></script>
 </body>
 </html>
