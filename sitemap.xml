@@ -4,4 +4,56 @@
     <loc>https://childbreathe.com/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://childbreathe.com/about/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/who-we-are/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/patient-resources/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/publications/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/registry/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/contact/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/about/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/who-we-are/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/patient-resources/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/publications/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/registry/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://childbreathe.com/da/contact/</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
