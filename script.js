@@ -1,6 +1,1 @@
-function toggleMenu() {
-  const mobileMenu = document.getElementById("mobileMenu");
-  if (mobileMenu) {
-    mobileMenu.classList.toggle("open");
-  }
-}
+function toggleMenu() { const menu = document.getElementById("mobileMenu"); if (menu) { menu.classList.toggle("open"); } }
