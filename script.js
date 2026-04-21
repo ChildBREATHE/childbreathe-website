@@ -1,19 +1,32 @@
+// Toggle menu + ARIA
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
-  if (menu) {
-    menu.classList.toggle("open");
+  const button = document.querySelector(".menu-toggle");
+
+  if (menu && button) {
+    const isOpen = menu.classList.toggle("open");
+    button.setAttribute("aria-expanded", isOpen);
   }
 }
 
-// Luk menu ved klik på link
+// Init ARIA attributter (uden HTML-ændringer)
 document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll("#mobileMenu a");
+  const button = document.querySelector(".menu-toggle");
+  const menu = document.getElementById("mobileMenu");
 
+  if (button && menu) {
+    button.setAttribute("aria-controls", "mobileMenu");
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Toggle navigation menu");
+  }
+
+  // Luk menu ved klik på link
+  const links = document.querySelectorAll("#mobileMenu a");
   links.forEach(link => {
     link.addEventListener("click", () => {
-      const menu = document.getElementById("mobileMenu");
-      if (menu) {
+      if (menu && button) {
         menu.classList.remove("open");
+        button.setAttribute("aria-expanded", "false");
       }
     });
   });
@@ -31,6 +44,7 @@ document.addEventListener("click", function (event) {
 
   if (!clickedInsideMenu && !clickedButton) {
     menu.classList.remove("open");
+    button.setAttribute("aria-expanded", "false");
   }
 });
 
@@ -38,8 +52,11 @@ document.addEventListener("click", function (event) {
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     const menu = document.getElementById("mobileMenu");
-    if (menu) {
+    const button = document.querySelector(".menu-toggle");
+
+    if (menu && button) {
       menu.classList.remove("open");
+      button.setAttribute("aria-expanded", "false");
     }
   }
 });
